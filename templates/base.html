@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+
+{% include 'head.html' %}
+
 <body>
 
+{% include 'header.html' %}
 
-<p>test</p>
+{% block content %}
+{% endblock %}
+
+
+
+{% include 'footer.html' %}
 
 </body>
 </html>
