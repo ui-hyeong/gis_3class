@@ -9,4 +9,4 @@ def hello_world(request):
         return render(request, 'accountapp/hello_world.html', context={'text': 'post method'})
 
     else:
-        return render(request, 'accountapp/hello_world.html', context={'text': 'post method'})
+        return render(request, 'accountapp/hello_world.html', context={'text': 'get method'})
