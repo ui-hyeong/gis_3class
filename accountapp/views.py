@@ -15,7 +15,13 @@ def hello_world(request):
         model_instance.text = temp
         model_instance.save()
 
-        return render(request, 'accountapp/hello_world.html', context={'model_instance': model_instance})
+        data_list = newModel.objects.all()
+
+
+        return render(request, 'accountapp/hello_world.html', context={'data_list': data_list})
 
     else:
-        return render(request, 'accountapp/hello_world.html', context={'text': 'get method'})
+        data_list = newModel.objects.all()
+
+
+        return render(request, 'accountapp/hello_world.html', context={'data_list': data_list})
