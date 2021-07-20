@@ -40,3 +40,4 @@ class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
+

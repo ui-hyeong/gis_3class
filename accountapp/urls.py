@@ -14,7 +14,7 @@ urlpatterns = [
 
     path('create/', AccountCreateView.as_view(), name='create'), # as_view를 선언하여 클래스를 사용할 수있게 한다.
 
-    path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),  # pk라는 이름에 숫자를 받는다. pirmary key
+    path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),  # pk라는 이름에 숫자를 받는다. primary key
 
 
 ]
