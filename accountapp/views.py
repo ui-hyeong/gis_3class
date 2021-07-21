@@ -12,24 +12,25 @@ from accountapp.models import newModel
 
 
 def hello_world(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
 
-    if request.method == "POST":
+            temp = request.POST.get('input_text')  # 인풋 텍스트를 얻어 temp라는 임시데이터에 저장한다.
 
-        temp = request.POST.get('input_text')  # 인풋 텍스트를 얻어 temp라는 임시데이터에 저장한다.
-
-        model_instance: newModel = newModel()
-        model_instance.text = temp
-        model_instance.save()
+            model_instance: newModel = newModel()
+            model_instance.text = temp
+            model_instance.save()
 
 
-        return HttpResponseRedirect(reverse('accountapp:hello_world'))
-      # accountapp의 hello_world의 이름으로 가라
+            return HttpResponseRedirect(reverse('accountapp:hello_world'))
+          # accountapp의 hello_world의 이름으로 가라
+
+        else:
+            data_list = newModel.objects.all()
+            return render(request, 'accountapp/hello_world.html', context={'data_list': data_list})
 
     else:
-        data_list = newModel.objects.all()
-        return render(request, 'accountapp/hello_world.html', context={'data_list': data_list})
-
-
+        return HttpResponseRedirect(reverse('accountapp:login'))
 
 class AccountCreateView(CreateView):
     model = User
@@ -44,13 +45,38 @@ class AccountDetailView(DetailView):
 
 class AccountUpdateView(UpdateView):
     model = User
-    form_class = AccountCreationForm                            # 아이디도 바꿀수 있게 설정되어있다.
+    form_class = AccountCreationForm                            # 아이디도 바꿀수 있게 설정되어있어서 forms를 직접만들어 대신 넣어줌
     context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
+
+    def get(self, request, *args, **kwargs):             # 주소를 직접 입력해서 접근해도 로그인 화면으로 넘어가게 한다.
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
 
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/delete.html'
+
+
+    def get(self, request, *args, **kwargs):             # 주소를 직접 입력해서 접근해도 로그인 화면으로 넘어가게 한다.
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().post(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('accountapp:login'))

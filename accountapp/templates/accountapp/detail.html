@@ -11,6 +11,7 @@
         </div>
 
         {% if user == target_user %}
+{#            # 타겟 유저와 유저가 동일해야 작동됨#}
 
         <div>
             <a href="{% url 'accountapp:update' pk=target_user.pk %}">
