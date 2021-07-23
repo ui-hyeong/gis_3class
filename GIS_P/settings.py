@@ -49,7 +49,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [   # 앱을 만들었고 그 앱을 사용할것이다 를 선언해주는곳
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'accountapp'
+    'accountapp',
+    'profileapp'
 
 ]
 
