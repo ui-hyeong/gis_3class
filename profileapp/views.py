@@ -16,6 +16,6 @@ class ProfileCreateView(CreateView):
     template_name = 'profileapp/create.html'
 
 
-    def form_valid(self, form):    #
+    def form_valid(self, form):    #요청한 유저를 식별하고 그유저에게 해당시킴
         form.instance.user = self.request.user
         return super().form_valid(form)
