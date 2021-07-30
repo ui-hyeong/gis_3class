@@ -58,7 +58,8 @@ INSTALLED_APPS = [   # 앱을 만들었고 그 앱을 사용할것이다 를 선
     'django.contrib.staticfiles',
     'bootstrap4',
     'accountapp',
-    'profileapp'
+    'profileapp',
+    'articleapp',
 
 ]
 
