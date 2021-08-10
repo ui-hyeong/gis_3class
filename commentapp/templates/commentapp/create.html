@@ -1,7 +1,8 @@
-{%  extends 'base.html' %}
+{# extend가 필요없다. #}
+{#이쓰면 이 페이지를 같이 쓰는 곳에도 머리와 꼬리내용이 출력되기 떄문 #}
 {% load bootstrap4 %} {# bootstrap4를 가져오겠다 #}
 
-{% block content %}
+
 
     <div class="text-center mw-500 m-auto">
         <div class="m-5">  {# 기본적으로 제공해주는 클래스 #}
@@ -21,4 +22,3 @@
         </div>
     </div>
 
-{%  endblock %}
