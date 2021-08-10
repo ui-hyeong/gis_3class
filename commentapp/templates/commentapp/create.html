@@ -12,6 +12,12 @@
             <form action="{% url 'commentapp:create' %}" method="post"> {# post형을 만들떄는 항상 토큰 넣기  / action은 요청을 보낼 경로             #}
                 {% csrf_token %}
                 {% bootstrap_form form %}
+
+                {#     게시글 pk는 불러오면서 hidden으로 가려준다.?    #}
+                <input type="hidden"
+                       name="article_pk"
+                       value="{{ target_article.pk }}">
+
                 <div class="m-5">
 
                     <input type="submit" class = 'btn btn-outline-dark rounded-pill px-5'>
