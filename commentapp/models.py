@@ -6,9 +6,10 @@ from articleapp.models import Article
 
 
 class Comment(models.Model):
+    # 작성자와 연결이다. 작성자가 탈퇴시 null(알수없음)으로 존재하게 해줌. SET_NULL 대신 CASECADE로 게시글 및 댓글을 삭제할 수있다.
     writer = models.ForeignKey(User, on_delete=models.SET_NULL,
                                related_name='comment', null=True)
-    # 위는 작성자와 연결이다.
+
     article = models.ForeignKey(Article, on_delete=models.SET_NULL,
                                 related_name='comment', null=True)
 
