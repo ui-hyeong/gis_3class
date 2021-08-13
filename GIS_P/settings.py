@@ -61,6 +61,7 @@ INSTALLED_APPS = [   # 앱을 만들었고 그 앱을 사용할것이다 를 선
     'profileapp',
     'articleapp',
     'commentapp',
+    'projectapp',
 
 ]
 
