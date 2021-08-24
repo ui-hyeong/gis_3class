@@ -79,6 +79,7 @@ a {
     color: black;
 }
 
+/* 마우스를 올렸을때 색깔이 바뀌는것 */
 a:hover {
     text-decoration: none;
     color: black;
