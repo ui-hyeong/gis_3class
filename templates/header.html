@@ -3,48 +3,49 @@
 
     {#    첫번쨰 숫자는 상하  두먼째 숫자는 좌우   #}
     {#  폰트가 적용이 안되면 cursive라는 폰트가 적용된다.  #}
-
-        <h1>Pragmatic</h1>
+        <a href="{% url 'home' %}">
+            <h1>Pragmatic</h1>
+        </a>
 
     </div>
 
     <div class="pragmatic_header_botton">
-        <span>
+        <span class="mx-2">
             <a href="{% url 'articleapp:list' %}">
                 Articles
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'projectapp:list' %}">
                 Projects
             </a>
         </span>
         {% if user.is_authenticated %}
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'projectapp:list' %}">
                     Subscription
                 </a>
             </span>
         {% endif %}
         {% if not user.is_authenticated %}   {# 로그인 확인 여부를 알아주는 객체 #}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:login' %}">
                 log-in
             </a>  {# a테그는 html 링크?테그를 만드는 것 #}
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:create' %}">
                 sign-up
             </a>
         </span>
         {% else %}
-        <span>
+        <span class="mx-2">
             <a href="{% url 'accountapp:detail' pk=user.pk %}" >
                 MyPage
             </a>
         </span>
 
-        <span>
+        <span class="mx-2">
             <a  href="{% url 'accountapp:logout' %}" >
                 log-out
             </a>
