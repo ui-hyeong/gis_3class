@@ -16,35 +16,8 @@ from pathlib import Path
 from django.conf.global_settings import LOGIN_REDIRECT_URL
 from django.urls import reverse_lazy
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-env_list = dict()
-
-local_env = open(os.path.join(BASE_DIR, '.env'))
-
-while True :
-    line = local_env.readline()
-    if not line :
-        break
-
-    line = line.replace('\n', '')    # 한줄로
-    start = line.find('=')        #= 이 있는 곳을 찾기
-    key = line[:start]                 #  왼쪽부분을 키  SECRET_KEY = 'django-insecure-ez14bcuso741!155ys$8h1v6kl-gs$ok-)8k56ll*6jz!cr404'
-    value = line[start+1:]             #  오른쪽을 밸류
-    env_list[key] = value
-
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env_list['SECRET_KEY']
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -104,15 +77,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'GIS_P.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -157,6 +121,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 MEDIA_URL = '/media/'  # 이미지파일 받을 준비단계
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
