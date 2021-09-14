@@ -8,7 +8,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
         'USER': 'django',
-        'PASSWORD': 'qlalfqjsgh@',
+        'PASSWORD': 'django',
         'HOST': 'mariadb', #컨테이너이름이랑 같아야함
         'PORT': '3306',
     }
