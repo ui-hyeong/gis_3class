@@ -1,6 +1,5 @@
-import os
+from .base import *
 
-from GIS_P.settings.base import BASE_DIR
 
 env_list = dict()
 
@@ -29,3 +28,10 @@ SECRET_KEY = env_list['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
