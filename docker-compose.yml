@@ -1,4 +1,4 @@
-version: "3.7"  #문법 버전임
+version: "3.7"  
 
 
 services:
