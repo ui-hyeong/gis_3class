@@ -16,7 +16,7 @@ services:
 
 
   django:
-    image: gis_3ban_django:4
+    image: gis_3ban_django:5
     networks:
       - gis_3ban_network
     volumes :
