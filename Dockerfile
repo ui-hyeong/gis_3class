@@ -16,4 +16,4 @@ RUN pip install mysqlclient
 
 EXPOSE 8000
 
-CMD ["bash", "-c","python manage.py collectstatic --noinput --settings=GIS_P.settings.deploy && python manage.py migrate --settings=GIS_P.settings.deploy && gunicorn --env DJANGO_SETTINGS_MODULE=GIS_P.settings GIS_P.wsgi --bind 0.0.0.0:8000"]
+CMD ["bash", "-c","python manage.py collectstatic --noinput --settings=GIS_P.settings.deploy && python manage.py migrate --settings=GIS_P.settings.deploy && gunicorn --env DJANGO_SETTINGS_MODULE=GIS_P.settings.deploy GIS_P.wsgi --bind 0.0.0.0:8000"]
