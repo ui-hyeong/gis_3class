@@ -17,6 +17,8 @@ services:
       - gisp_static:/data/static/
       - gisp_media:/data/media/
       - gis_log:/var/log/nginx/
+    secrets:
+      - NGINX_AUTH
 
   goaccess:
     image: allinurl/goaccess:1.5.1
@@ -72,4 +74,6 @@ secrets:
   MARIADB_USER:
     external: true
   MARIADB_PASSWORD:
+    external: true
+  NGINX_AUTH:
     external: true
